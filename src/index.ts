@@ -1,16 +1,16 @@
-// src/index.ts (¡Punto de prueba funcional!)
-import { connectDB } from "./db/connections";
-import mongoose from "mongoose";
 
-async function initTest() {
-    console.log("⏳ Iniciando prueba de conexión...");
+import { BookModel } from "./models/bookModel";
 
-    
-    await connectDB();
-    
 
-    
-    console.log("prueba de conexion.");
-}
+const checkModel = () => {
+    // 1. Verificamos si el modelo está disponible
+    if (BookModel) {
 
-initTest();
+        console.log(" Modelo 'BookModel' cargado correctamente.");
+        console.log(`Colección de MongoDB: ${BookModel.collection.name}`); 
+    } else {
+        console.log(" ERROR: El modelo no se importó. Revisa 'bookModel.ts'.");
+    }
+};
+
+checkModel(); 
